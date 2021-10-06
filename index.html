@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Multiple Visualisations | An Example</title>
+    <title>HW10 | Alex Waddington</title>
     <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -39,7 +39,7 @@
 
         <!-- pure grid group -->
         <div class="pure-g">
-            <div class="pure-u-1-1">
+            <div class="pure-u-1-2">
                 <div class="description description-left">
                     <h2>New York Restaurants by Food Review and Price Range</h2>
                     <p>The following map visualises the reviews received by restaurants duing New York Food Week 2018.
@@ -54,9 +54,27 @@
         </div>
         <!-- end pure grid group -->
 
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="description description-left">
+                    <h2>Average Review Sores by Restaurant Type </h2>
+                    <p>This visulaisation shows the average reviews scores by category for each restaurant type against
+                        the overall average review score given to each restaurant taking into account all factors. It is
+                        interesting to see that the majority of restaurants receive category reviews on average that are
+                        worse than the overall average</p>
+                </div>
+            </div>
+            <div class="pure-u-1-1">
+                <div id="vis2" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
         <script type="text/javascript">
             var specVis1 = "js/manhattan_map.json";
-            var specVis2 = "js/average_review_annotated.json";
+            var specVis2 = "js/average_reviews_annotated.json";
 
             vegaEmbed('#vis1', specVis1, { "actions": false });
 
