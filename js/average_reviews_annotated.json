@@ -50,7 +50,7 @@
             "y": {
               "field": "restaurant_main_type",
               "type": "ordinal",
-              "title": "Restaurant type"
+              "title": ""
             },
             "color": {
               "field": "price_range"
@@ -215,7 +215,8 @@
               "title": ""
             },
             "color": {
-              "field": "price_range"
+              "field": "price_range",
+              "title": "Price range"
             },
             "opacity": {
               "condition": {
