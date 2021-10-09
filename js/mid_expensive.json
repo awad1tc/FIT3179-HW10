@@ -1,0 +1,108 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/awad1tc/FIT3179-HW9/main/data/restaurant_week_2018_final.csv"
+    },
+    "params": [
+        {
+            "name": "num_reviews",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 5000,
+                "step": 10,
+                "name": "# reviews: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": {
+                "field": "price_range",
+                "oneOf": [
+                    "$50 and over",
+                    "$31 to $50"
+                ]
+            }
+        },
+        {
+            "filter": {
+                "field": "restaurant_main_type",
+                "oneOf": [
+                    "American",
+                    "Asian",
+                    "Contemporary American",
+                    "French",
+                    "Italian",
+                    "Mediterranean",
+                    "Italian",
+                    "Other Europe",
+                    "Other"
+                ]
+            }
+        },
+        {
+            "filter": "datum.review_count > num_reviews"
+        },
+        {
+            "filter": "datum.review_count > num_reviews"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "food_review",
+            "aggregate": "mean",
+            "type": "quantitative",
+            "scale": {
+                "domain": [
+                    3.8,
+                    4.8
+                ]
+            },
+            "title": "Food review"
+        },
+        "y": {
+            "field": "restaurant_main_type",
+            "type": "nominal",
+            "title": "",
+            "axis": {
+                "offset": 5,
+                "ticks": false,
+                "minExtent": 70,
+                "domain": false
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": "line",
+            "encoding": {
+                "detail": {
+                    "field": "restaurant_main_type",
+                    "type": "nominal"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "filled": true
+            },
+            "encoding": {
+                "color": {
+                    "field": "price_range",
+                    "type": "ordinal",
+                    "title": "Price range"
+                },
+                "size": {
+                    "value": 100
+                },
+                "opacity": {
+                    "value": 1
+                }
+            }
+        }
+    ],
+    "config": {}
+}

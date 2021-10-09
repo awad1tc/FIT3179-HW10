@@ -3,11 +3,27 @@
   "data": {
     "url": "https://raw.githubusercontent.com/awad1tc/FIT3179-HW9/main/data/restaurant_week_2018_final.csv"
   },
+  "params": [
+    {
+      "name": "num_reviews",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 5000,
+        "step": 10,
+        "name": "# reviews: "
+      }
+    }
+  ],
   "transform": [
     {
       "filter": {
         "field": "price_range",
-        "oneOf": ["$50 and over", "$30 and under"]
+        "oneOf": [
+          "$50 and over",
+          "$30 and under"
+        ]
       }
     },
     {
@@ -25,6 +41,9 @@
           "Other"
         ]
       }
+    },
+    {
+      "filter": "datum.review_count > num_reviews"
     }
   ],
   "encoding": {
@@ -32,33 +51,53 @@
       "field": "food_review",
       "aggregate": "mean",
       "type": "quantitative",
-      "scale": {"domain": [3.8, 4.8]},
+      "scale": {
+        "domain": [
+          3.8,
+          4.8
+        ]
+      },
       "title": "Food review"
     },
     "y": {
       "field": "restaurant_main_type",
       "type": "nominal",
-      "title": "Restaurant",
-      "axis": {"offset": 5, "ticks": false, "minExtent": 70, "domain": false}
+      "title": "",
+      "axis": {
+        "offset": 5,
+        "ticks": false,
+        "minExtent": 70,
+        "domain": false
+      }
     }
   },
   "layer": [
     {
       "mark": "line",
       "encoding": {
-        "detail": {"field": "restaurant_main_type", "type": "nominal"}
+        "detail": {
+          "field": "restaurant_main_type",
+          "type": "nominal"
+        }
       }
     },
     {
-      "mark": {"type": "point", "filled": true},
+      "mark": {
+        "type": "point",
+        "filled": true
+      },
       "encoding": {
         "color": {
           "field": "price_range",
           "type": "ordinal",
           "title": "Price range"
         },
-        "size": {"value": 100},
-        "opacity": {"value": 1}
+        "size": {
+          "value": 100
+        },
+        "opacity": {
+          "value": 1
+        }
       }
     }
   ],

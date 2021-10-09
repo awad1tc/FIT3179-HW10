@@ -24,7 +24,7 @@ body {
 }
 
 .vis-container {
-    align-self: center;
+    align-content: center;
     width: 100%;
 }
 

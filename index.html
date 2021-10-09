@@ -75,24 +75,21 @@
         <!-- pure grid group -->
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div class="description">
+                <div class="description description-left">
                     <h2>Cheap vs. Expensive Restaurants</h2>
-                    <p>This visulaisation shows the difference in review scores for the restaurants in the cheapest and
-                        most expensive price range. Interestingly, customers consider more expensive restaurants to be
-                        better value</p>
+                    <p>More expensive restaurants have higher food
+                        reviews, however this is more pronoucned for American and Contemporary American cuisine. French
+                        restuarnats have the smallest variance across price range.</p>
                 </div>
-                <div id="vis3" class="vis-container"></div>
+                <div id="vis3" class="vis-container-left"></div>
             </div>
             <div class="pure-u-1-2">
-                <div class="description">
+                <div class="description description-right">
                     <h2>Mid Priced vs. Expensive Restaurants</h2>
-                    <p>This visulaisation shows the difference in review scores for the restaurants in the cheapest
-                        and
-                        most expensive price range. Interestingly, customers consider more expensive restaurants to
-                        be
-                        better value</p>
+                    <p>For almost all cuisines review scores are closer for mid priced restaurants. For French and
+                        Mediterranean restuarnats the mid priced reviews are worse than the cheap restaurants.</p>
                 </div>
-                <div id="vis2" class="vis-container"></div>
+                <div id="vis4" class="vis-container-right"></div>
             </div>
         </div>
         <!-- end pure grid group -->
@@ -101,6 +98,7 @@
             var specVis1 = "js/manhattan_map.json";
             var specVis2 = "js/average_reviews_annotated.json";
             var specVis3 = "js/cheap_expensive.json";
+            var specVis4 = "js/mid_expensive.json";
 
             vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -112,7 +110,7 @@
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
 
-            vegaEmbed('#vis4', specVis2, { "actions": false }).then(function (result) {
+            vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
         </script>
