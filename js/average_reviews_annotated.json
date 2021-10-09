@@ -4,10 +4,16 @@
     "url": "https://raw.githubusercontent.com/awad1tc/FIT3179-HW9/main/data/restaurant_week_2018_final.csv"
   },
   "transform": [
-    {"filter": "datum['average_review'] != null"},
+    {
+      "filter": "datum['average_review'] != null"
+    },
     {
       "joinaggregate": [
-        {"op": "median", "field": "average_review", "as": "AverageRating"}
+        {
+          "op": "median",
+          "field": "average_review",
+          "as": "AverageRating"
+        }
       ]
     }
   ],
@@ -19,7 +25,12 @@
           "params": [
             {
               "name": "price",
-              "select": {"type": "point", "fields": ["price_range"]},
+              "select": {
+                "type": "point",
+                "fields": [
+                  "price_range"
+                ]
+              },
               "bind": "legend"
             }
           ],
@@ -28,7 +39,12 @@
               "field": "food_review",
               "aggregate": "median",
               "type": "quantitative",
-              "scale": {"domain": [3, 5]},
+              "scale": {
+                "domain": [
+                  3,
+                  5
+                ]
+              },
               "title": "Median food rating"
             },
             "y": {
@@ -36,16 +52,29 @@
               "type": "ordinal",
               "title": "Restaurant type"
             },
-            "color": {"field": "price_range"},
+            "color": {
+              "field": "price_range"
+            },
             "opacity": {
-              "condition": {"param": "price", "value": 1},
+              "condition": {
+                "param": "price",
+                "value": 1
+              },
               "value": 0.2
             }
           }
         },
         {
-          "mark": {"type": "rule", "color": "red"},
-          "encoding": {"x": {"field": "AverageRating", "type": "quantitative"}}
+          "mark": {
+            "type": "rule",
+            "color": "red"
+          },
+          "encoding": {
+            "x": {
+              "field": "AverageRating",
+              "type": "quantitative"
+            }
+          }
         },
         {
           "mark": {
@@ -63,7 +92,9 @@
               "type": "quantitative",
               "formatType": "number"
             },
-            "color": {"value": "black"}
+            "color": {
+              "value": "black"
+            }
           }
         }
       ]
@@ -75,63 +106,12 @@
           "params": [
             {
               "name": "price",
-              "select": {"type": "point", "fields": ["price_range"]},
-              "bind": "legend"
-            }
-          ],
-          "encoding": {
-            "x": {
-              "field": "service_review",
-              "aggregate": "median",
-              "type": "quantitative",
-              "scale": {"domain": [3, 5]},
-              "title": "Median service rating"
-            },
-            "y": {
-              "field": "restaurant_main_type",
-              "type": "ordinal",
-              "title": ""
-            },
-            "color": {"field": "price_range", "title": "Price range"},
-            "opacity": {
-              "condition": {"param": "price", "value": 1},
-              "value": 0.2
-            }
-          }
-        },
-        {
-          "mark": {"type": "rule", "color": "red"},
-          "encoding": {"x": {"field": "AverageRating", "type": "quantitative"}}
-        },
-        {
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "baseline": "bottom",
-            "dx": 65,
-            "font": "Helvetica Neue",
-            "fontSize": 10,
-            "fontWeight": 300
-          },
-          "encoding": {
-            "text": {
-              "field": "AverageRating",
-              "type": "quantitative",
-              "formatType": "number"
-            },
-            "color": {"value": "black"}
-          }
-        }
-      ]
-    },
-    {
-      "layer": [
-        {
-          "mark": "point",
-          "params": [
-            {
-              "name": "price",
-              "select": {"type": "point", "fields": ["price_range"]},
+              "select": {
+                "type": "point",
+                "fields": [
+                  "price_range"
+                ]
+              },
               "bind": "legend"
             }
           ],
@@ -140,7 +120,12 @@
               "field": "value_review",
               "aggregate": "median",
               "type": "quantitative",
-              "scale": {"domain": [3, 5]},
+              "scale": {
+                "domain": [
+                  3,
+                  5
+                ]
+              },
               "title": "Median value rating"
             },
             "y": {
@@ -148,72 +133,29 @@
               "type": "ordinal",
               "title": ""
             },
-            "color": {"field": "price_range"},
+            "color": {
+              "field": "price_range"
+            },
             "opacity": {
-              "condition": {"param": "price", "value": 1},
+              "condition": {
+                "param": "price",
+                "value": 1
+              },
               "value": 0.2
             }
           }
         },
         {
-          "mark": {"type": "rule", "color": "red"},
-          "encoding": {"x": {"field": "AverageRating", "type": "quantitative"}}
-        },
-        {
           "mark": {
-            "type": "text",
-            "align": "left",
-            "baseline": "bottom",
-            "dx": 65,
-            "font": "Helvetica Neue",
-            "fontSize": 10,
-            "fontWeight": 300
+            "type": "rule",
+            "color": "red"
           },
-          "encoding": {
-            "text": {
-              "field": "AverageRating",
-              "type": "quantitative",
-              "formatType": "number"
-            },
-            "color": {"value": "black"}
-          }
-        }
-      ]
-    },
-    {
-      "layer": [
-        {
-          "mark": "point",
-          "params": [
-            {
-              "name": "price",
-              "select": {"type": "point", "fields": ["price_range"]},
-              "bind": "legend"
-            }
-          ],
           "encoding": {
             "x": {
-              "field": "ambience_review",
-              "aggregate": "median",
-              "type": "quantitative",
-              "scale": {"domain": [3, 5]},
-              "title": "Median ambience rating"
-            },
-            "y": {
-              "field": "restaurant_main_type",
-              "type": "ordinal",
-              "title": ""
-            },
-            "color": {"field": "price_range"},
-            "opacity": {
-              "condition": {"param": "price", "value": 1},
-              "value": 0.2
+              "field": "AverageRating",
+              "type": "quantitative"
             }
           }
-        },
-        {
-          "mark": {"type": "rule", "color": "red"},
-          "encoding": {"x": {"field": "AverageRating", "type": "quantitative"}}
         },
         {
           "mark": {
@@ -231,7 +173,9 @@
               "type": "quantitative",
               "formatType": "number"
             },
-            "color": {"value": "black"}
+            "color": {
+              "value": "black"
+            }
           }
         }
       ]
