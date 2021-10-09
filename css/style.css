@@ -13,18 +13,13 @@ body {
 .page {
     width: 1250px;
     background-color: white;
-<<<<<<< HEAD
     margin: 1%;
     padding: 20px;
     padding-top: 20px;
-=======
-    margin: 20px;
-    padding: 50px;
-    padding-top: 35px;
->>>>>>> 87d3ff7e013d62526bedc0ef073e513ac60f97c0
 }
 
 .vis-container {
+    align-content: center;
     width: 100%;
 }
 
