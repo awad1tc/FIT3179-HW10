@@ -72,9 +72,35 @@
         </div>
         <!-- end pure grid group -->
 
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="description">
+                    <h2>Cheap vs. Expensive Restaurants</h2>
+                    <p>This visulaisation shows the difference in review scores for the restaurants in the cheapest and
+                        most expensive price range. Interestingly, customers consider more expensive restaurants to be
+                        better value</p>
+                </div>
+                <div id="vis3" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="description">
+                    <h2>Mid Priced vs. Expensive Restaurants</h2>
+                    <p>This visulaisation shows the difference in review scores for the restaurants in the cheapest
+                        and
+                        most expensive price range. Interestingly, customers consider more expensive restaurants to
+                        be
+                        better value</p>
+                </div>
+                <div id="vis2" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
         <script type="text/javascript">
             var specVis1 = "js/manhattan_map.json";
             var specVis2 = "js/average_reviews_annotated.json";
+            var specVis3 = "js/cheap_expensive.json";
 
             vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -82,7 +108,7 @@
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
 
-            vegaEmbed('#vis3', specVis1, { "actions": false }).then(function (result) {
+            vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
 
