@@ -90,7 +90,9 @@
         "color": {
           "field": "price_range",
           "type": "ordinal",
-          "title": "Price range"
+          "scale": {
+            "scheme": "paired"
+          }
         },
         "size": {
           "value": 100

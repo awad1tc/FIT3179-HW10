@@ -24,18 +24,30 @@
     {
       "name": "source_1",
       "url": "https://raw.githubusercontent.com/awad1tc/FIT3179-HW9/main/data/restaurant_week_2018_final.csv",
-      "format": {"type": "csv", "delimiter": ","},
+      "format": {
+        "type": "csv",
+        "delimiter": ","
+      },
       "transform": [
         {
           "type": "geojson",
-          "fields": ["longitude", "latitude"],
+          "fields": [
+            "longitude",
+            "latitude"
+          ],
           "signal": "layer_1_geojson_0"
         },
         {
           "type": "geopoint",
           "projection": "projection",
-          "fields": ["longitude", "latitude"],
-          "as": ["layer_1_x", "layer_1_y"]
+          "fields": [
+            "longitude",
+            "latitude"
+          ],
+          "as": [
+            "layer_1_x",
+            "layer_1_y"
+          ]
         },
         {
           "type": "filter",
@@ -47,8 +59,12 @@
   "projections": [
     {
       "name": "projection",
-      "size": {"signal": "[width, height]"},
-      "fit": {"signal": "[data('source_0'), layer_1_geojson_0]"},
+      "size": {
+        "signal": "[width, height]"
+      },
+      "fit": {
+        "signal": "[data('source_0'), layer_1_geojson_0]"
+      },
       "type": "identity"
     }
   ],
@@ -56,43 +72,78 @@
     {
       "name": "layer_0_marks",
       "type": "shape",
-      "style": ["geoshape"],
-      "from": {"data": "source_0"},
+      "style": [
+        "geoshape"
+      ],
+      "from": {
+        "data": "source_0"
+      },
       "encode": {
         "update": {
-          "fill": {"value": "whitesmoke"},
-          "stroke": {"value": "darkslategray"},
+          "fill": {
+            "value": "whitesmoke"
+          },
+          "stroke": {
+            "value": "darkslategray"
+          },
           "tooltip": {
             "signal": "{\"Borough\": isValid(datum[\"properties.boro_name\"]) ? datum[\"properties.boro_name\"] : \"\"+datum[\"properties.boro_name\"]}"
           },
-          "ariaRoleDescription": {"value": "geoshape"},
+          "ariaRoleDescription": {
+            "value": "geoshape"
+          },
           "description": {
             "signal": "\"Borough: \" + (isValid(datum[\"properties.boro_name\"]) ? datum[\"properties.boro_name\"] : \"\"+datum[\"properties.boro_name\"])"
           }
         }
       },
-      "transform": [{"type": "geoshape", "projection": "projection"}]
+      "transform": [
+        {
+          "type": "geoshape",
+          "projection": "projection"
+        }
+      ]
     },
     {
       "name": "layer_1_marks",
       "type": "symbol",
-      "style": ["square"],
-      "from": {"data": "source_1"},
+      "style": [
+        "square"
+      ],
+      "from": {
+        "data": "source_1"
+      },
       "encode": {
         "update": {
-          "opacity": {"value": 0.5},
-          "size": {"scale": "size", "field": "food_review"},
-          "fill": {"scale": "color", "field": "price_range"},
+          "opacity": {
+            "value": 0.5
+          },
+          "size": {
+            "scale": "size",
+            "field": "food_review"
+          },
+          "fill": {
+            "scale": "color",
+            "field": "price_range"
+          },
           "tooltip": {
             "signal": "{\"Name\": isValid(datum[\"name\"]) ? datum[\"name\"] : \"\"+datum[\"name\"], \"Address\": isValid(datum[\"street_address\"]) ? datum[\"street_address\"] : \"\"+datum[\"street_address\"], \"Type\": isValid(datum[\"restaurant_type\"]) ? datum[\"restaurant_type\"] : \"\"+datum[\"restaurant_type\"], \"Food review\": format(datum[\"food_review\"], \"\"), \"Price range\": isValid(datum[\"price_range\"]) ? datum[\"price_range\"] : \"\"+datum[\"price_range\"]}"
           },
-          "ariaRoleDescription": {"value": "square"},
+          "ariaRoleDescription": {
+            "value": "square"
+          },
           "description": {
             "signal": "\"longitude: \" + (format(datum[\"longitude\"], \"\")) + \"; latitude: \" + (format(datum[\"latitude\"], \"\")) + \"; Food review (out of 5): \" + (format(datum[\"food_review\"], \"\")) + \"; Price range: \" + (isValid(datum[\"price_range\"]) ? datum[\"price_range\"] : \"\"+datum[\"price_range\"]) + \"; Name: \" + (isValid(datum[\"name\"]) ? datum[\"name\"] : \"\"+datum[\"name\"]) + \"; Address: \" + (isValid(datum[\"street_address\"]) ? datum[\"street_address\"] : \"\"+datum[\"street_address\"]) + \"; Type: \" + (isValid(datum[\"restaurant_type\"]) ? datum[\"restaurant_type\"] : \"\"+datum[\"restaurant_type\"]) + \"; Food review: \" + (format(datum[\"food_review\"], \"\"))"
           },
-          "x": {"field": "layer_1_x"},
-          "y": {"field": "layer_1_y"},
-          "shape": {"value": "square"}
+          "x": {
+            "field": "layer_1_x"
+          },
+          "y": {
+            "field": "layer_1_y"
+          },
+          "shape": {
+            "value": "square"
+          }
         }
       }
     }
@@ -101,15 +152,27 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "source_1", "field": "price_range", "sort": true},
-      "range": {"scheme": "category10"},
+      "domain": {
+        "data": "source_1",
+        "field": "price_range",
+        "sort": true
+      },
+      "range": {
+        "scheme": "paired"
+      },
       "interpolate": "hcl"
     },
     {
       "name": "size",
       "type": "linear",
-      "domain": [3.4, 5],
-      "range": [10, 50],
+      "domain": [
+        3.4,
+        5
+      ],
+      "range": [
+        10,
+        50
+      ],
       "zero": false
     }
   ],
@@ -118,7 +181,15 @@
       "title": "Price range",
       "fill": "color",
       "symbolType": "square",
-      "encode": {"symbols": {"update": {"opacity": {"value": 0.5}}}}
+      "encode": {
+        "symbols": {
+          "update": {
+            "opacity": {
+              "value": 0.5
+            }
+          }
+        }
+      }
     },
     {
       "title": "Food review (out of 5)",
@@ -127,10 +198,18 @@
       "encode": {
         "symbols": {
           "update": {
-            "fill": {"value": "black"},
-            "fillOpacity": {"value": 0.5},
-            "opacity": {"value": 0.5},
-            "stroke": {"value": "transparent"}
+            "fill": {
+              "value": "black"
+            },
+            "fillOpacity": {
+              "value": 0.5
+            },
+            "opacity": {
+              "value": 0.5
+            },
+            "stroke": {
+              "value": "transparent"
+            }
           }
         }
       }
