@@ -173,44 +173,5 @@
             "zero": false
         }
     ],
-    "legends": [
-        {
-            "title": "Price range",
-            "fill": "color",
-            "symbolType": "square",
-            "encode": {
-                "symbols": {
-                    "update": {
-                        "opacity": {
-                            "value": 0.5
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "title": "Food review (out of 5)",
-            "size": "size",
-            "symbolType": "square",
-            "encode": {
-                "symbols": {
-                    "update": {
-                        "fill": {
-                            "value": "black"
-                        },
-                        "fillOpacity": {
-                            "value": 0.5
-                        },
-                        "opacity": {
-                            "value": 0.5
-                        },
-                        "stroke": {
-                            "value": "transparent"
-                        }
-                    }
-                }
-            }
-        }
-    ],
     "config": {}
 }

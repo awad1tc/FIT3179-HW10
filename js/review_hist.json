@@ -1,0 +1,102 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/awad1tc/FIT3179-HW9/main/data/restaurant_week_2018_final.csv"
+    },
+    "mark": "bar",
+    "params": [
+        {
+            "name": "Restaurant_Type_Selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "Italian",
+                    "American",
+                    "Steakhouse",
+                    "Contemporary American",
+                    "French",
+                    "Mexican",
+                    "Japanese and Korean",
+                    "Seafood",
+                    "Mediterranean",
+                    "Spanish",
+                    "Chinese",
+                    "Other Europe",
+                    "Indian",
+                    "Southeast Asian",
+                    "Asian",
+                    "Greek",
+                    "Other"
+                ],
+                "labels": [
+                    "Show All",
+                    "Italian",
+                    "American",
+                    "Steakhouse",
+                    "Contemporary American",
+                    "French",
+                    "Mexican",
+                    "Japanese and Korean",
+                    "Seafood",
+                    "Mediterranean",
+                    "Spanish",
+                    "Chinese",
+                    "Other Europe",
+                    "Indian",
+                    "Southeast Asian",
+                    "Asian",
+                    "Greek",
+                    "Other"
+                ],
+                "name": "Restaurant type: "
+            }
+        },
+        {
+            "name": "price",
+            "select": {
+                "type": "point",
+                "fields": [
+                    "price_range"
+                ]
+            },
+            "bind": "legend"
+        }
+    ],
+    "transform": [
+        {
+            "filter": "Restaurant_Type_Selection == null || datum.restaurant_main_type == Restaurant_Type_Selection"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "bin": true,
+            "field": "food_review",
+            "title": "Food review score",
+            "scale": {
+                "domain": [
+                    3.1,
+                    5
+                ]
+            }
+        },
+        "y": {
+            "aggregate": "count",
+            "title": null
+        },
+        "color": {
+            "field": "price_range",
+            "title": null,
+            "scale": {
+                "scheme": "paired"
+            }
+        },
+        "opacity": {
+            "condition": {
+                "param": "price",
+                "value": 1
+            },
+            "value": 0.2
+        }
+    }
+}

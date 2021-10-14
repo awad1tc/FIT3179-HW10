@@ -70,7 +70,6 @@
         </div>
         <!-- end pure grid group -->
 
-
         <!-- pure grid group -->
         <div class="pure-g">
             <div class="pure-u-1-1">
@@ -110,6 +109,21 @@
         </div>
         <!-- end pure grid group -->
 
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description">
+                    <h2>Review Score Distributions </h2>
+                    <p>Placeholder</p>
+                </div>
+            </div>
+            <div class="pure-u-1-1">
+                <div id="vis6" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+
         <div class="pure-g footer">
             <div class="pure-u-1-1 small-font">
                 <p>This visualisation is created by <a href="https://github.com/awad1tc" target="_blank">Alex
@@ -126,6 +140,8 @@
             var specVis3 = "js/cheap_expensive.json";
             var specVis4 = "js/mid_expensive.json";
             var specVis5 = "js/manhattan_only_map.json";
+            var specVis6 = "js/review_hist.json";
+
 
             vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -144,6 +160,11 @@
             vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
+
+            vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+
         </script>
 </body>
 
