@@ -54,6 +54,7 @@
             },
             "color": {
               "field": "price_range",
+              "title": null,
               "scale": {
                 "scheme": "paired"
               }
